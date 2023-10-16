@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagementSystem.API", "LibraryManagementSystem.API\LibraryManagementSystem.API.csproj", "{AA3EDAE5-93DC-46E5-B5C4-E86144724DD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagementSystem.Tests", "LibraryManagementSystem.Tests\LibraryManagementSystem.Tests.csproj", "{811E72C9-7F5D-4A41-8E9D-3A7C8E39D005}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{AA3EDAE5-93DC-46E5-B5C4-E86144724DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA3EDAE5-93DC-46E5-B5C4-E86144724DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA3EDAE5-93DC-46E5-B5C4-E86144724DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{811E72C9-7F5D-4A41-8E9D-3A7C8E39D005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{811E72C9-7F5D-4A41-8E9D-3A7C8E39D005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{811E72C9-7F5D-4A41-8E9D-3A7C8E39D005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{811E72C9-7F5D-4A41-8E9D-3A7C8E39D005}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
