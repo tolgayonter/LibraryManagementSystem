@@ -12,6 +12,8 @@ public class Library
         _context = context;
     }
 
+    public List<Book> Books => _context.Books.ToList();
+
     public List<Book> GetBooksByAuthor(string authorName)
     {
         return _context.Books
