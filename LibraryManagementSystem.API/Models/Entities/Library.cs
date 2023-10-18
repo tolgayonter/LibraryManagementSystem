@@ -1,26 +1,42 @@
-﻿namespace LibraryManagementSystem.API.Models.Entities;
+﻿using LibraryManagementSystem.API.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace LibraryManagementSystem.API.Models.Entities;
 
 public class Library
 {
-    public List<Book> Books { get; set; } = new List<Book>();
+    private readonly LibraryDbContext _context;
+
+    public Library(LibraryDbContext context)
+    {
+        _context = context;
+    }
 
     public List<Book> GetBooksByAuthor(string authorName)
     {
-        return Books.Where(book => book.Author.Name == authorName).ToList();
+        return _context.Books
+            .Where(b => b.Author.Name == authorName)
+            .ToList();
     }
 
-    public List<Book> GetAllCheckOutBooks()
+    public List<Book> GetAllCheckedOutBooks()
     {
-        return Books.Where(book => book.CheckedOut).ToList();
+        return _context.Books
+            .Where(book => book.CheckedOut)
+            .ToList();
     }
 
     public async Task<bool> CheckOutBookAsync(string isbn)
     {
-        var book = Books.FirstOrDefault(b => b.ISBN == isbn);
+        var book = await _context.Books.FirstOrDefaultAsync(b => b.ISBN == isbn);
         if (book == null) return false;
 
         await Task.Delay(1000);
+
         book.CheckedOut = true;
+
+        await _context.SaveChangesAsync();
+
         return true;
     }
 }
