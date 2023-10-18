@@ -13,6 +13,16 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
 
-app.MapGet("/books", (Library library) => library.Books);
+app.MapGet("/books", (Library library) =>
+    library.Books);
+
+app.MapGet("/books/author/{authorName}", (string authorName, Library library) =>
+    library.GetBooksByAuthor(authorName));
+
+app.MapGet("/books/checkedout", (Library library) =>
+    library.GetAllCheckedOutBooks());
+
+app.MapPost("/books/checkout", async (string isbn, Library library) => 
+    await library.CheckOutBookAsync(isbn));
 
 app.Run();

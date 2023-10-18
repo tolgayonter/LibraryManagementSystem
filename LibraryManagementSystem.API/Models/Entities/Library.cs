@@ -24,7 +24,7 @@ public class Library
     public List<Book> GetAllCheckedOutBooks()
     {
         return _context.Books
-            .Where(book => book.CheckedOut)
+            .Where(b => b.CheckedOut)
             .ToList();
     }
 
@@ -33,7 +33,7 @@ public class Library
         var book = await _context.Books.FirstOrDefaultAsync(b => b.ISBN == isbn);
         if (book == null) return false;
 
-        await Task.Delay(1000);
+        await Task.Delay(5000);
 
         book.CheckedOut = true;
 
