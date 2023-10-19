@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSystem.Tests;
 
-public class UnitTest1
+public class LibraryTests
 {
     private LibraryDbContext GetInMemoryDbContext()
     {

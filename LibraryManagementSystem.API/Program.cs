@@ -11,6 +11,12 @@ builder.Services.AddScoped<Library>();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
+    DbInitializer.Initialize(context);
+}
+
 app.MapGet("/", () => "Hello World!");
 
 app.MapGet("/books", (Library library) =>
